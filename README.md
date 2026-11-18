@@ -71,9 +71,17 @@ The current canary documentation for Next.js describes only `AGENTS.md`, so this
 bash tools/collect-agent-evidence.sh /path/to/project
 ```
 
+On Windows, use the PowerShell version:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\collect-agent-evidence.ps1 -ProjectPath C:\path\to\project
+```
+
 It never modifies the project, the agents' home folders or git. Session logs and shell history are not copied; only matching lines are written, truncated, with credential-looking lines dropped. The report still contains local paths, so review it before sharing and do not commit it (the `.gitignore` here excludes `agent-evidence-*/`).
 
-Requirements: bash, standard Unix tools, optionally `python3` and `zstd` (needed to read compressed Codex sessions). Tested on macOS.
+Requirements for the bash version: bash, standard Unix tools, optionally `python3` and `zstd` (needed to read compressed Codex sessions). Tested on macOS.
+
+Requirements for the PowerShell version: Windows PowerShell 5.1 or PowerShell 7, optionally `git` and `zstd` on PATH. It mirrors the bash version section by section but has not been run on Windows yet; if a section fails, the others still run and the error is printed to the console.
 
 ## Verify an entry yourself
 
