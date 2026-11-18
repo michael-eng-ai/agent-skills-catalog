@@ -1,0 +1,10 @@
+# Reports produced by tools/collect-agent-evidence.sh contain local paths and
+# session excerpts. Never commit them.
+agent-evidence-*/
+
+.env
+.DS_Store
+__pycache__/
+node_modules/
+*.pkl
+*.tfstate
